@@ -9,7 +9,22 @@ def chat():
     chat_window = Tk()
     chat_window.title("Company Chat")
     chat_window.iconbitmap(default="chatimg.ico")
-    print(name.get())
+    chat_window.geometry("816x597+214+23")
+    chat_window.resizable(width=False, height=False)
+
+    T = Text(chat_window, height=5, width=52)
+    Fact = """A man can be arrested in
+    Italy for wearing  arrested in
+    Italy for wearing a skirt in public."""
+    T.place(width= 600, height = 389, x= 3 , y= 3)
+    T.insert(END, Fact)
+    T.config(state=DISABLED)
+
+    T2 = Text(chat_window, height=5, width=52)
+    T2.place(width = 600, height = 140, x = 3, y = 415)
+
+
+
     chat_window.mainloop()
 
 #INITIAL WINDOW AND PARAMETERS
@@ -17,7 +32,7 @@ main_window = Tk()
 main_window.title("Company Chat")
 main_window.iconbitmap(default="chatimg.ico")
 main_window.geometry("300x500+457+45")
-main_window.resizable(width=False, height=False)
+#main_window.resizable(width=False, height=False)
 
 
 #Creating labels
@@ -60,7 +75,7 @@ def clique_esquerdo_mouse(arg):
 
     else:
 
-        print(f'width= {arg.x-x1}, height = {arg.y-y1} x= {x1} , y= {y1}')
+        print(f'width= {arg.x-x1}, height = {arg.y-y1}, x= {x1} , y= {y1}, GEO: {main_window.geometry()}')
 
 main_window.bind("<Button-1>",clique_esquerdo_mouse)
 
