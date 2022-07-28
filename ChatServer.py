@@ -7,7 +7,6 @@ i = 0 # client identifier
 clients = []
 
 def messagesTreatment(clients,i):
-    print("iniciou thread")
     while True:
         #receive the message and send to the other peer.
         data = clients[i].recv(1024)
@@ -23,10 +22,8 @@ s.listen() #listening to new conncetions
 
 #loop to receive new connections and create threads for every new connection
 while True:
-    print("aguardando conexao de outra pessoa")
     conn, ender = s.accept() #accept connection
     clients.append(conn)
-    print("contectado em", ender)
     thread = threading.Thread(target=messagesTreatment,args=[clients,i])
     i=i+1
     thread.start()
